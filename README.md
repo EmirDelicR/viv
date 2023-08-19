@@ -45,3 +45,9 @@ If you are developing a production application, we recommend updating the config
 ```console
 npm install @mantine/core @mantine/hooks @emotion/react
 ```
+
+#### Adding SCSS
+
+```console
+npm install -D sass
+```

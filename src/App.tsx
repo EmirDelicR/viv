@@ -1,9 +1,10 @@
 import { Button } from '@mantine/core';
+import './App.scss';
 
 function App() {
   return (
     <div>
-      <Button>TEst</Button>
+      <Button className="test">TEst</Button>
     </div>
   );
 }
