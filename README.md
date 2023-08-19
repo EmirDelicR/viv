@@ -51,3 +51,11 @@ npm install @mantine/core @mantine/hooks @emotion/react
 ```console
 npm install -D sass
 ```
+
+## Prettier setup
+
+[Prettier](https://dev.to/marcosdiasdev/adding-eslint-and-prettier-to-a-vitejs-react-project-2kkj)
+
+```console
+npm i -D eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
+```
