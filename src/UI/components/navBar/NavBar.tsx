@@ -1,3 +1,4 @@
+import Logo from '@/UI/elements/logo/Logo';
 import {
   Box,
   Burger,
@@ -31,24 +32,16 @@ interface NavLinksProps {
   label: string;
   navigateTo: string;
 }
+/*
+TODO add styles from video
+*/
 
 function NavLinks({ label, navigateTo }: NavLinksProps) {
   return (
     <UnstyledButton
       sx={(theme) => ({
         display: 'block',
-        width: '100%',
-        padding: theme.spacing.xs,
-        borderRadius: theme.radius.sm,
-        color:
-          theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-
-        '&:hover': {
-          backgroundColor:
-            theme.colorScheme === 'dark'
-              ? theme.colors.dark[6]
-              : theme.colors.gray[0]
-        }
+        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black
       })}
     >
       {label}
@@ -67,7 +60,7 @@ export default function NavBar() {
     }
 
     return (
-      <Flex>
+      <Flex gap="lg">
         {LINKS.map((item) => (
           <NavLinks
             key={item.label}
@@ -82,7 +75,7 @@ export default function NavBar() {
   return (
     <Box p="md">
       <Group position="apart">
-        <div>Logo</div>
+        <Logo />
         {renderLinks()}
       </Group>
       <Drawer opened={opened} onClose={close} title="Authentication">
