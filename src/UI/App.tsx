@@ -1,9 +1,7 @@
 import NavBar from './components/navBar/NavBar';
-import ThemeProvider from './components/themeProvider/ThemeProvider';
+import ThemeProvider from './themeProvider/ThemeProvider';
 
-import './App.scss';
-
-function App() {
+export default function App() {
   return (
     <ThemeProvider>
       <NavBar />
@@ -11,5 +9,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
