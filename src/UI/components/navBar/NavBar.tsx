@@ -1,14 +1,7 @@
-import {
-  ActionIcon,
-  Box,
-  Group,
-  rem,
-  useMantineColorScheme
-} from '@mantine/core';
+import { Box, Group, rem } from '@mantine/core';
+import ThemeToggle from '@/UI/elements/themeToggle/ThemeToggle';
 
 export default function NavBar() {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-
   return (
     <Box
       sx={(theme) => ({
@@ -24,13 +17,7 @@ export default function NavBar() {
     >
       <Group position="apart">
         <div>Logo</div>
-        <ActionIcon
-          variant="default"
-          onClick={() => toggleColorScheme()}
-          size={30}
-        >
-          {colorScheme === 'dark' ? 'D' : 'L'}
-        </ActionIcon>
+        <ThemeToggle />
       </Group>
     </Box>
   );

@@ -1,5 +1,5 @@
-import NavBar from './components/navBar/NavBar';
-import ThemeProvider from './themeProvider/ThemeProvider';
+import NavBar from '@/UI/components/navBar/NavBar';
+import ThemeProvider from '@/UI/themeProvider/ThemeProvider';
 
 export default function App() {
   return (
