@@ -1,23 +1,14 @@
-import { AppShell, Header, Navbar } from '@mantine/core';
+import NavBar from './components/navBar/NavBar';
+import ThemeProvider from './components/themeProvider/ThemeProvider';
+
 import './App.scss';
 
 function App() {
   return (
-    <AppShell
-      padding="md"
-      navbar={
-        <Navbar width={{ base: 300 }} height={500} p="xs">
-          nav
-        </Navbar>
-      }
-      header={
-        <Header height={60} p="xs">
-          header
-        </Header>
-      }
-    >
+    <ThemeProvider>
+      <NavBar />
       App
-    </AppShell>
+    </ThemeProvider>
   );
 }
 
