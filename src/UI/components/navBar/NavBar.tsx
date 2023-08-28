@@ -9,6 +9,9 @@ import {
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
+import './NavBar.scss';
+import { useMemo } from 'react';
+
 const LINKS: NavLinksProps[] = [
   {
     label: 'DRM',
@@ -39,6 +42,7 @@ TODO add styles from video
 function NavLinks({ label, navigateTo }: NavLinksProps) {
   return (
     <UnstyledButton
+      className='nav-bar-link'
       sx={(theme) => ({
         display: 'block',
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black
@@ -53,6 +57,15 @@ export default function NavBar() {
   const isMobile = useMediaQuery('(max-width: 56.25em)');
   const [opened, { toggle, close }] = useDisclosure(false);
   const label = opened ? 'Close navigation' : 'Open navigation';
+  const $links = useMemo(() => {
+    return LINKS.map((item: NavLinksProps) => (
+        <NavLinks
+          key={item.label}
+          label={item.label}
+          navigateTo={item.navigateTo}
+        />
+      ))
+  }, [])
 
   const renderLinks = () => {
     if (isMobile) {
@@ -60,14 +73,8 @@ export default function NavBar() {
     }
 
     return (
-      <Flex gap="lg">
-        {LINKS.map((item) => (
-          <NavLinks
-            key={item.label}
-            label={item.label}
-            navigateTo={item.navigateTo}
-          />
-        ))}
+      <Flex>
+        {$links}
       </Flex>
     );
   };
@@ -80,13 +87,7 @@ export default function NavBar() {
       </Group>
       <Drawer opened={opened} onClose={close} title="Authentication">
         <Flex direction="column">
-          {LINKS.map((item) => (
-            <NavLinks
-              key={item.label}
-              label={item.label}
-              navigateTo={item.navigateTo}
-            />
-          ))}
+          {$links}
         </Flex>
       </Drawer>
     </Box>
