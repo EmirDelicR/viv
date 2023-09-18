@@ -1,71 +1,35 @@
 import Logo from '@/UI/elements/logo/Logo';
-import {
-  Box,
-  Burger,
-  Drawer,
-  Flex,
-  Group,
-  UnstyledButton
-} from '@mantine/core';
+import { Box, Burger, Drawer, Group, SegmentedControl } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-
-import './NavBar.scss';
-import { useMemo } from 'react';
 
 const LINKS: NavLinksProps[] = [
   {
     label: 'DRM',
-    navigateTo: 'drm'
+    value: 'drm'
   },
   {
     label: 'EDGE',
-    navigateTo: 'edge'
+    value: 'edge'
   },
   {
     label: 'TEAM',
-    navigateTo: 'team'
+    value: 'team'
   },
   {
     label: 'PARTNERS',
-    navigateTo: 'partners'
+    value: 'partners'
   }
 ];
 
 interface NavLinksProps {
   label: string;
-  navigateTo: string;
-}
-/*
-TODO add styles from video
-*/
-
-function NavLinks({ label, navigateTo }: NavLinksProps) {
-  return (
-    <UnstyledButton
-      className='nav-bar-link'
-      sx={(theme) => ({
-        display: 'block',
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black
-      })}
-    >
-      {label}
-    </UnstyledButton>
-  );
+  value: string;
 }
 
 export default function NavBar() {
   const isMobile = useMediaQuery('(max-width: 56.25em)');
   const [opened, { toggle, close }] = useDisclosure(false);
   const label = opened ? 'Close navigation' : 'Open navigation';
-  const $links = useMemo(() => {
-    return LINKS.map((item: NavLinksProps) => (
-        <NavLinks
-          key={item.label}
-          label={item.label}
-          navigateTo={item.navigateTo}
-        />
-      ))
-  }, [])
 
   const renderLinks = () => {
     if (isMobile) {
@@ -73,9 +37,13 @@ export default function NavBar() {
     }
 
     return (
-      <Flex>
-        {$links}
-      </Flex>
+      <SegmentedControl
+        data={LINKS}
+        fullWidth
+        radius="md"
+        color="indigo"
+        bg="transparent"
+      />
     );
   };
 
@@ -85,10 +53,15 @@ export default function NavBar() {
         <Logo />
         {renderLinks()}
       </Group>
-      <Drawer opened={opened} onClose={close} title="Authentication">
-        <Flex direction="column">
-          {$links}
-        </Flex>
+      <Drawer opened={opened} onClose={close}>
+        <SegmentedControl
+          data={LINKS}
+          fullWidth
+          orientation="vertical"
+          bg="transparent"
+          color="indigo"
+          radius="md"
+        />
       </Drawer>
     </Box>
   );
