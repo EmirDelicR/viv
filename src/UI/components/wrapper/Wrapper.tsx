@@ -19,7 +19,7 @@ export default function Wrapper({
       <Box className="wrapper-left">
         <Container>{children}</Container>
       </Box>
-      <Box className="wrapper-left">
+      <Box>
         <Container>{children}</Container>
       </Box>
     </>
