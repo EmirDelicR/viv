@@ -1,52 +1,23 @@
 import {
-  ColorSchemeProvider,
   MantineProvider,
-  type ColorScheme
+  createTheme,
+  localStorageColorSchemeManager
 } from '@mantine/core';
-import { useLocalStorage, useHotkeys } from '@mantine/hooks';
+
 import { PropsWithChildren } from 'react';
 
 const THEME_KEY = 'mantine-color-scheme';
 
+const theme = createTheme({
+  fontFamily: 'Open Sans, sans-serif'
+});
+
 export default function ThemeProvider({ children }: PropsWithChildren) {
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: THEME_KEY,
-    defaultValue: 'light',
-    getInitialValueInEffect: true
-  });
-
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
-  useHotkeys([['mod+J', () => toggleColorScheme()]]);
+  const colorSchemeManager = localStorageColorSchemeManager({ key: THEME_KEY });
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        withCSSVariables
-        theme={{
-          colorScheme,
-          globalStyles: (theme) => ({
-            '*, *::before, *::after': {
-              boxSizing: 'border-box'
-            },
-
-            body: {
-              ...theme.fn.fontStyles(),
-              backgroundColor: theme.colors.blue[5],
-              color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-              lineHeight: theme.lineHeight
-            }
-          })
-        }}
-      >
-        {children}
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <MantineProvider colorSchemeManager={colorSchemeManager} theme={theme}>
+      {children}
+    </MantineProvider>
   );
 }

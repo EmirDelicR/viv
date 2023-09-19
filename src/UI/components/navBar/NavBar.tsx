@@ -3,7 +3,7 @@ import { useDisclosure, useMediaQuery } from '@mantine/hooks';
 
 import Logo from '@/UI/elements/logo/Logo';
 
-import './NavBar.scss';
+import classes from './NavBar.module.scss';
 
 const LINKS: NavLinksProps[] = [
   {
@@ -33,7 +33,7 @@ export default function NavBar() {
   const isMobile = useMediaQuery('(max-width: 56.25em)');
   const [opened, { toggle, close }] = useDisclosure(false);
   const label = opened ? 'Close navigation' : 'Open navigation';
-
+  console.log('classes: ', classes);
   const renderLinks = () => {
     if (isMobile) {
       return <Burger opened={opened} onClick={toggle} aria-label={label} />;
@@ -41,7 +41,12 @@ export default function NavBar() {
 
     return (
       <SegmentedControl
-        className="nav-bar-segment"
+        classNames={{
+          root: classes['nav-bar-segment'],
+          label: classes.label,
+          control: classes.control,
+          indicator: classes.indicator
+        }}
         data={LINKS}
         fullWidth
         radius="0"
@@ -53,7 +58,7 @@ export default function NavBar() {
 
   return (
     <Box p="md">
-      <Group position="apart">
+      <Group justify="space-between">
         <Logo />
         {renderLinks()}
       </Group>

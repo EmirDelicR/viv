@@ -1,0 +1,23 @@
+// Desktop only!
+.nav-bar-segment {
+  .control::before {
+    background-color: unset;
+  }
+
+  .indicator {
+    background-color: unset;
+    border-bottom: 1px solid var(--mantine-color-gray-0);
+  }
+
+  .label {
+    color: black;
+
+    &:hover {
+      color: var(--mantine-color-gray-0);
+    }
+
+    &[data-active] {
+      color: var(--mantine-color-gray-0);
+    }
+  }
+}

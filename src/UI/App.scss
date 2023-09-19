@@ -1,0 +1,15 @@
+html {
+  body {
+    color: white;
+  }
+
+  &[data-mantine-color-scheme='light'] {
+    body {
+      color: black;
+    }
+  }
+}
+
+body {
+  background-color: var(--mantine-color-blue-5);
+}
