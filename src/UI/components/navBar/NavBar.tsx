@@ -33,7 +33,7 @@ export default function NavBar() {
   const isMobile = useMediaQuery('(max-width: 56.25em)');
   const [opened, { toggle, close }] = useDisclosure(false);
   const label = opened ? 'Close navigation' : 'Open navigation';
-  console.log('classes: ', classes);
+
   const renderLinks = () => {
     if (isMobile) {
       return <Burger opened={opened} onClick={toggle} aria-label={label} />;
