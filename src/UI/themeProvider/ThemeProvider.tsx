@@ -28,6 +28,7 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
+        withCSSVariables
         theme={{ colorScheme }}
       >
         {children}

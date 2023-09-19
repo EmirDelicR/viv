@@ -13,10 +13,13 @@ export default function Wrapper({
 }: Props) {
   return (
     <>
-      <Box className="wrapper">
+      <Box className="wrapper wrapper__top-right">
         <Container>{children}</Container>
       </Box>
-      <Box className="wrapper-left">
+      <Box className="wrapper-top-left">
+        <Container>{children}</Container>
+      </Box>
+      <Box className="wrapper wrapper__bottom-left">
         <Container>{children}</Container>
       </Box>
       <Box>
