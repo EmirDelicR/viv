@@ -1,3 +1,12 @@
+@mixin pseudo-element {
+  content: '';
+  position: absolute;
+  background-color: #339af0;
+  border-radius: 5px;
+  width: calc(var(--pillar-size) * 2);
+  height: calc(var(--pillar-size) * 2);
+}
+
 .wrapper {
   --card-color: var(--c);
   --pillar-size: 34px;
@@ -7,10 +16,11 @@
   --circles-space: calc(var(--big-circle-r) + var(--pillar-size));
   --circle-extend-inset: calc(var(--circle-r) + var(--circles-space));
 
+  position: relative;
   min-height: 400px;
-  // TODO @ed build panels
+
   &__top {
-    background: 
+    background:
     /* Big Circle Cutout */
       radial-gradient(
           circle at 100% 0%,
@@ -39,10 +49,24 @@
         linear-gradient(0deg, var(--card-color) 100%, var(--card-color) 100%)
         100% var(--circles-space) / var(--circles-space) 100% no-repeat
         no-repeat;
+
+    &::before {
+      @include pseudo-element;
+      opacity: 0.2;
+      right: calc(var(--pillar-size) * 2.2);
+      top: 5px;
+    }
+
+    &::after {
+      @include pseudo-element;
+      opacity: 0.1;
+      right: 0;
+      top: calc(var(--pillar-size) * 2.2);
+    }
   }
 
   &__bottom {
-    background: 
+    background:
     /* Big Circle Cutout */
       radial-gradient(
           circle at 0% 100%,
@@ -70,27 +94,19 @@
         linear-gradient(0deg, var(--card-color) 100%, var(--card-color) 100%) 0
         0 / var(--circle-extend-inset) calc(100% - var(--circles-space))
         no-repeat no-repeat;
+
+    &::before {
+      @include pseudo-element;
+      opacity: 0.2;
+      left: calc(var(--pillar-size) * 2.2);
+      bottom: 5px;
+    }
+
+    &::after {
+      @include pseudo-element;
+      opacity: 0.1;
+      left: 0;
+      bottom: calc(var(--pillar-size) * 2.2);
+    }
   }
-
-  //   background-color: aqua;
-  //   position: relative;
-
-  //   &::before {
-  //     content: '';
-  //     position: absolute;
-  //     background-color: aqua;
-  //     width: 70px;
-  //     height: 60px;
-  //     right: 0;
-  //     bottom: -59px;
-  //     border-bottom-left-radius: 15px;
-  //   }
-
-  //   &::after {
-  //     content: '';
-  //     position: absolute;
-  //     width: 10%;
-  //     height: 10%;
-  //     background: blue;
-  //   }
 }

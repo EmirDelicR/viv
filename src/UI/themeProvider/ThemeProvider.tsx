@@ -38,7 +38,7 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
 
             body: {
               ...theme.fn.fontStyles(),
-              backgroundColor: theme.colors.blue[6],
+              backgroundColor: theme.colors.blue[5],
               color: theme.colorScheme === 'dark' ? theme.white : theme.black,
               lineHeight: theme.lineHeight
             }
