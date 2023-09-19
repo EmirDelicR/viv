@@ -52,14 +52,14 @@
 
     &::before {
       @include pseudo-element;
-      opacity: 0.2;
+      opacity: 0.5;
       right: calc(var(--pillar-size) * 2.2);
       top: 5px;
     }
 
     &::after {
       @include pseudo-element;
-      opacity: 0.1;
+      opacity: 0.3;
       right: 0;
       top: calc(var(--pillar-size) * 2.2);
     }
@@ -97,14 +97,14 @@
 
     &::before {
       @include pseudo-element;
-      opacity: 0.2;
+      opacity: 0.5;
       left: calc(var(--pillar-size) * 2.2);
       bottom: 5px;
     }
 
     &::after {
       @include pseudo-element;
-      opacity: 0.1;
+      opacity: 0.3;
       left: 0;
       bottom: calc(var(--pillar-size) * 2.2);
     }
