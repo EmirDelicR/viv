@@ -8,7 +8,11 @@ export default function App() {
     <ThemeProvider>
       <main>
         <NavBar />
-        <Wrapper>Test</Wrapper>
+        <Wrapper bgColor="transparent">Test</Wrapper>
+        <Wrapper position="top">Test</Wrapper>
+        <Wrapper bgColor="transparent">Test</Wrapper>
+        <Wrapper position="bottom">Test</Wrapper>
+        <Wrapper bgColor="transparent">Test</Wrapper>
         <ThemeToggle />
       </main>
     </ThemeProvider>

@@ -1,30 +1,34 @@
-import { Box, Container } from '@mantine/core';
-import { PropsWithChildren } from 'react';
+import {
+  Box,
+  Container,
+  useMantineColorScheme,
+  useMantineTheme
+} from '@mantine/core';
+import { CSSProperties, PropsWithChildren } from 'react';
 
 import './Wrapper.scss';
 
 interface Props extends PropsWithChildren {
-  position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  position?: 'top' | 'bottom' | undefined;
+  bgColor?: 'white' | 'transparent';
 }
 
 export default function Wrapper({
-  position = 'bottom-right',
-  children
+  children,
+  position = undefined,
+  bgColor = 'white'
 }: Props) {
+  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
+  const dark = colorScheme === 'dark';
+  const color =
+    dark && bgColor === 'white' ? theme.black : theme.colors.blue[0];
+  const positionClass = position ? `wrapper__${position}` : '';
+  const classes = `wrapper ${positionClass}`.trim();
+
   return (
-    <>
-      <Box className="wrapper wrapper__top-right">
-        <Container>{children}</Container>
-      </Box>
-      <Box className="wrapper-top-left">
-        <Container>{children}</Container>
-      </Box>
-      <Box className="wrapper wrapper__bottom-left">
-        <Container>{children}</Container>
-      </Box>
-      <Box>
-        <Container>{children}</Container>
-      </Box>
-    </>
+    <Box className={classes} style={{ '--c': color } as CSSProperties}>
+      <Container>{children}</Container>
+    </Box>
   );
 }

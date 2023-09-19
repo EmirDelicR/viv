@@ -1,5 +1,5 @@
 .wrapper {
-  --card-color: var(--mantine-color-blue-0);
+  --card-color: var(--c);
   --pillar-size: 34px;
   --big-circle-r: 30px;
   --circle-r: 13px;
@@ -9,7 +9,7 @@
 
   min-height: 400px;
 
-  &__top-right {
+  &__top {
     background: 
     /* Big Circle Cutout */
       radial-gradient(
@@ -41,7 +41,7 @@
         no-repeat;
   }
 
-  &__bottom-left {
+  &__bottom {
     background: 
     /* Big Circle Cutout */
       radial-gradient(
