@@ -29,7 +29,21 @@ export default function ThemeProvider({ children }: PropsWithChildren) {
         withGlobalStyles
         withNormalizeCSS
         withCSSVariables
-        theme={{ colorScheme }}
+        theme={{
+          colorScheme,
+          globalStyles: (theme) => ({
+            '*, *::before, *::after': {
+              boxSizing: 'border-box'
+            },
+
+            body: {
+              ...theme.fn.fontStyles(),
+              backgroundColor: theme.colors.blue[6],
+              color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+              lineHeight: theme.lineHeight
+            }
+          })
+        }}
       >
         {children}
       </MantineProvider>

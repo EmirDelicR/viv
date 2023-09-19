@@ -3,8 +3,6 @@ import ThemeProvider from '@/UI/themeProvider/ThemeProvider';
 import ThemeToggle from '@/UI/elements/themeToggle/ThemeToggle';
 import Wrapper from '@/UI/components/wrapper/Wrapper';
 
-import './App.scss';
-
 export default function App() {
   return (
     <ThemeProvider>
