@@ -1,6 +1,9 @@
-import Logo from '@/UI/elements/logo/Logo';
 import { Box, Burger, Drawer, Group, SegmentedControl } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+
+import Logo from '@/UI/elements/logo/Logo';
+
+import './NavBar.scss';
 
 const LINKS: NavLinksProps[] = [
   {
@@ -38,10 +41,11 @@ export default function NavBar() {
 
     return (
       <SegmentedControl
+        className="nav-bar-segment"
         data={LINKS}
         fullWidth
-        radius="md"
-        color="indigo"
+        radius="0"
+        color="transparent"
         bg="transparent"
       />
     );
