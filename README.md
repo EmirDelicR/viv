@@ -59,3 +59,11 @@ npm install -D sass
 ```console
 npm i -D eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks
 ```
+
+## Icons
+
+[React-icons](https://react-icons.github.io/react-icons)
+
+```console
+npm install react-icons --save
+```
