@@ -1,0 +1,5 @@
+.cards-wrapper {
+  &:hover > .card::after {
+    opacity: 1;
+  }
+}

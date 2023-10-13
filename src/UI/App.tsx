@@ -1,7 +1,9 @@
+import HighlightedCards from '@/UI/components/highlightedCard/HighlightedCards';
 import NavBar from '@/UI/components/navBar/NavBar';
-import ThemeProvider from '@/UI/themeProvider/ThemeProvider';
-import ThemeToggle from '@/UI/elements/themeToggle/ThemeToggle';
 import Wrapper from '@/UI/components/wrapper/Wrapper';
+import ThemeToggle from '@/UI/elements/themeToggle/ThemeToggle';
+
+import ThemeProvider from '@/UI/themeProvider/ThemeProvider';
 
 import '@mantine/core/styles.css';
 import './App.scss';
@@ -12,7 +14,9 @@ export default function App() {
       <main>
         <NavBar />
         <Wrapper bgColor="transparent">Test</Wrapper>
-        <Wrapper position="top">Test</Wrapper>
+        <Wrapper position="top">
+          <HighlightedCards />
+        </Wrapper>
         <Wrapper bgColor="transparent">Test</Wrapper>
         <Wrapper position="bottom">Test</Wrapper>
         <Wrapper bgColor="transparent">Test</Wrapper>
